@@ -1,4 +1,4 @@
-# habakke Hass.io Add-ons
+# Hass.io Add-ons
 
 ## Available Add-ons
 
