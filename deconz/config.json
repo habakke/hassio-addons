@@ -4,7 +4,7 @@
   "slug": "deconz",
   "description": "Control a Zigbee network with ConBee or RaspBee by Dresden Elektronik",
   "arch": ["amd64", "armhf", "aarch64"],
-  "url": "https://github.com/home-assistant/hassio-addons/tree/master/deconz",
+  "url": "https://github.com/habakke/hassio-addons/tree/master/deconz",
   "startup": "services",
   "boot": "auto",
   "ingress": true,
@@ -13,9 +13,9 @@
   "homeassistant": "0.91.2",
   "discovery": ["deconz"],
   "ports": {
-    "5900/tcp": null,
-    "8081/tcp": null,
-    "40850/tcp": null
+    "5900/tcp": 5900,
+    "8081/tcp": 8081,
+    "40850/tcp": 40850
   },
   "ports_description": {
     "5900/tcp": "deCONZ graphical desktop via VNC",
@@ -30,8 +30,8 @@
   "privileged": ["SYS_MODULE", "SYS_RAWIO"],
   "devices": ["/dev/bus/usb:/dev/bus/usb:rwm", "/dev/mem:/dev/mem:rw"],
   "options": {
-    "device": null,
-    "vnc_password": ""
+    "device": /dev/ttyACM0,
+    "vnc_password": "test"
   },
   "schema": {
     "device": "str",
