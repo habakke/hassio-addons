@@ -30,7 +30,7 @@
   "privileged": ["SYS_MODULE", "SYS_RAWIO"],
   "devices": ["/dev/bus/usb:/dev/bus/usb:rwm", "/dev/mem:/dev/mem:rw"],
   "options": {
-    "device": /dev/ttyACM0,
+    "device": "/dev/ttyACM0",
     "vnc_password": "test"
   },
   "schema": {
