@@ -6,8 +6,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install deCONZ dependencies
 ARG BUILD_ARCH
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends \
         curl \
         iproute2 \
         iputils-ping \
@@ -30,14 +30,13 @@ RUN apt-get update \
         wget \
         wmii \
         xfonts-base \
-        xfonts-scalable \
-    && rm -rf /var/lib/apt/lists/* \
-    && if [ "${BUILD_ARCH}" = "armhf" ]; \
-        then \
-            curl -q -L -o /wiringpi.deb https://project-downloads.drogon.net/wiringpi-latest.deb \
-            && dpkg -i /wiringpi.deb \
-            && rm -rf /wiringpi.deb; \
-        fi
+        xfonts-scalable && \
+        apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Add WiringPi, install WiringPi
+ADD https://project-downloads.drogon.net/wiringpi-latest.deb /wiringpi.deb
+RUN dpkg -i /wiringpi.deb && rm -f /wiringpi.deb
 
 # Install deCONZ
 ARG DECONZ_VERSION
