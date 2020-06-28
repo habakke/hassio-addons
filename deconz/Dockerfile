@@ -6,8 +6,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install deCONZ dependencies
 ARG BUILD_ARCH
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
         curl \
         iproute2 \
         iputils-ping \
